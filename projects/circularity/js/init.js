@@ -21,7 +21,26 @@ var init = function (window) {
         ////////////////////////////////////////////////////////////
         ///////////////// PROGRAM SETUP ////////////////////////////
         ////////////////////////////////////////////////////////////
+        var circle;
+        var circles = [];
+        var i = 0;
+        var eachCircle;
+        function drawCircle(){
+            circle = draw.randomCircleInArea(canvas, true, true, "#999", 2);
+            physikz.addRandomVelocity(circle, canvas);
+            view.addChild(circle);
+            circles.push(circle);
+        }
+while (i < 100){
+    drawCircle();
+    i++
+}
+            
+    
+
         
+            
+
         
 
 
@@ -35,7 +54,14 @@ var init = function (window) {
         and check to see if it has drifted off the screen.         
         */
         function update() {
-            
+           for (i = 0; i < circles.length; i++) {
+               eachCircle = circles[i];
+               physikz.updatePosition(circle);
+               game.checkCirclePosition(eachCircle);
+           }
+
+           
+
            
             
         }
